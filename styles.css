@@ -1,12 +1,21 @@
 :root{
-  --bg:#0b0f14;
-  --panel:#0f1620;
-  --tint:#0e1520;
-  --text:#e9eef5;
-  --muted:#a9b4c2;
-  --line:rgba(255,255,255,.10);
-  --accent:#d7b46a;
-  --shadow: 0 12px 40px rgba(0,0,0,.35);
+  /* Base tones */
+  --bg: #f6f1e8;          /* 生成り（小麦粉） */
+  --panel: #fbf7f0;       /* 明るい生地 */
+  --tint: #f1e6d6;        /* 温かい背景切替 */
+
+  /* Text */
+  --text: #3b2f2a;        /* 焼き色の濃い部分 */
+  --muted: #7a6658;       /* ふすま色 */
+
+  /* Lines & shadows */
+  --line: rgba(59,47,42,.15);
+  --shadow: 0 12px 30px rgba(80,60,40,.18);
+
+  /* Accent (麦・蜂蜜) */
+  --accent: #d2a24c;      /* 麦色 */
+  --accent-soft: #efd8a1; /* バター寄り */
+
   --radius: 18px;
 }
 
