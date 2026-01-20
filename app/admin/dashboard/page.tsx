@@ -54,7 +54,7 @@ export default async function AdminDashboardPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-brown-200">
-              {posts.map((post) => (
+              {posts.map((post: BlogPost) => (
                 <tr key={post.id} className="hover:bg-beige-50">
                   <td className="px-6 py-4 text-sm text-brown-900">
                     <div className="space-y-1">
@@ -70,11 +70,10 @@ export default async function AdminDashboardPage() {
                   </td>
                   <td className="px-6 py-4 text-sm">
                     <span
-                      className={`px-2 py-1 text-xs ${
-                        post.published
+                      className={`px-2 py-1 text-xs ${post.published
                           ? "bg-green-100 text-green-800"
                           : "bg-gray-100 text-gray-800"
-                      }`}
+                        }`}
                     >
                       {post.published ? "Published" : "Draft"}
                     </span>
