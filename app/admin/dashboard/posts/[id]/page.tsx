@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
+import ImageUpload from "@/components/admin/ImageUpload";
 
 export default function EditPostPage() {
   const router = useRouter();
@@ -338,27 +339,16 @@ export default function EditPostPage() {
           </div>
 
           <div>
-            <label
-              htmlFor="heroImage"
-              className="block text-sm font-medium text-brown-700 mb-2"
-            >
+            <label className="block text-sm font-medium text-brown-700 mb-2">
               Hero Image (optional)
             </label>
-            <input
-              type="text"
-              id="heroImage"
+            <ImageUpload
               value={formData.heroImage}
-              onChange={(e) =>
-                setFormData((prev) => ({ ...prev, heroImage: e.target.value }))
+              onChange={(url) =>
+                setFormData((prev) => ({ ...prev, heroImage: url }))
               }
-              className="w-full px-3 py-2 border border-brown-300 bg-white text-brown-900 focus:outline-none focus:border-brown-500"
               disabled={loading}
-              placeholder="/images/your-image.jpg"
             />
-            <p className="mt-1 text-xs text-brown-600">
-              Enter the path to an image in /public/images/ folder (e.g.,
-              /images/burger.jpeg)
-            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-6">

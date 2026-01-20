@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import type { BlogPost } from "@prisma/client";
 
 export default async function AdminDashboardPage() {
-  const posts = await prisma.blogPost.findMany({
+  const posts: BlogPost[] = await prisma.blogPost.findMany({
     orderBy: { date: "desc" },
   });
 
