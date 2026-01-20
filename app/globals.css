@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: #A38B73;
+  }
+
+  body {
+    background-color: #F5F1E8;
+    color: #2C2419;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Smaller fonts for desktop to create more spacious feeling */
+  @media (min-width: 1024px) {
+    body {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-zen-maru-gothic), sans-serif;
+    color: #2C2419;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-[2.5rem] font-bold mb-6;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-[2rem] font-bold mb-5 mt-12;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl lg:text-[1.5rem] font-semibold mb-4 mt-8;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl lg:text-[1.25rem] font-semibold mb-3 mt-6;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    color: #6E5C44;
+    text-underline-offset: 4px;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #534536;
+  }
+
+  hr {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-top-width: 1px;
+    border-color: #BCA78F;
+  }
+
+  blockquote {
+    border-left-width: 4px;
+    border-color: #8B7355;
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #534536;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ul, ol {
+    @apply ml-8 mb-6;
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  ul li {
+    @apply list-disc;
+  }
+
+  ol li {
+    @apply list-decimal;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #EBE4D5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #A38B73;
+    border-radius: 0.25rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #8B7355;
+  }
+}
+
+@layer utilities {
+  .prose {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .prose {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .section-divider {
+    border-top-width: 1px;
+    border-color: #BCA78F;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
