@@ -2,6 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllPosts, formatDate } from "@/lib/blog-db";
 
+// Use dynamic rendering since blog posts are fetched from database
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog - UTokyo Bakers' Lab",
   description: "パン研究会の活動報告、イベント情報、パン文化に関する記事",

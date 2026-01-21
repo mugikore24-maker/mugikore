@@ -2,19 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getPostBySlug, getAllPosts, formatDate } from "@/lib/blog-db";
+import { getPostBySlug, formatDate } from "@/lib/blog-db";
 import ReactMarkdown from "react-markdown";
+
+// Use dynamic rendering since blog posts are fetched from database
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-export async function generateStaticParams() {
-  const posts = await getAllPosts("en");
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

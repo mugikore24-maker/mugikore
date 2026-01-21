@@ -2,6 +2,9 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import type { BlogPost } from "@prisma/client";
 
+// Use dynamic rendering since this page queries the database
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardPage() {
   const posts: BlogPost[] = await prisma.blogPost.findMany({
     orderBy: { date: "desc" },
