@@ -72,6 +72,8 @@ export default function AboutPage() {
           <div className="space-y-4 text-lg leading-relaxed text-brown-800">
             <p>
               みなさん、ご参加くださりありがとうございます！
+            </p>
+            <p>
               UTokyo Bakers' Lab (東大パン研究会) へようこそ！
             </p>
 
