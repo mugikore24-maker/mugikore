@@ -35,13 +35,21 @@ async function main() {
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const matterResult = matter(fileContents);
 
+      const title = matterResult.data.title || slug;
+      const excerpt = matterResult.data.excerpt || "";
+      const content = matterResult.content;
+
       return {
         slug,
-        title: matterResult.data.title || slug,
+        titleJa: title,
+        titleEn: matterResult.data.titleEn || "",
         date: new Date(matterResult.data.date || new Date()),
         author: matterResult.data.author || "UTokyo Bakers' Lab",
-        excerpt: matterResult.data.excerpt || "",
-        content: matterResult.content,
+        excerptJa: excerpt,
+        excerptEn: matterResult.data.excerptEn || "",
+        contentJa: content,
+        contentEn: matterResult.data.contentEn || "",
+        heroImage: matterResult.data.heroImage || null,
         published: true,
       };
     });
@@ -53,11 +61,15 @@ async function main() {
       await prisma.blogPost.upsert({
         where: { slug: post.slug },
         update: {
-          title: post.title,
+          titleJa: post.titleJa,
+          titleEn: post.titleEn,
           date: post.date,
           author: post.author,
-          excerpt: post.excerpt,
-          content: post.content,
+          excerptJa: post.excerptJa,
+          excerptEn: post.excerptEn,
+          contentJa: post.contentJa,
+          contentEn: post.contentEn,
+          heroImage: post.heroImage,
           published: post.published,
         },
         create: post,

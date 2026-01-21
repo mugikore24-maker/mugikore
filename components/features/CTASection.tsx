@@ -35,7 +35,7 @@ export default function CTASection() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }}
         />
         <motion.div
@@ -48,7 +48,7 @@ export default function CTASection() {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }}
         />
       </div>
@@ -191,7 +191,7 @@ export default function CTASection() {
                 transition={{
                   duration: 6,
                   repeat: Infinity,
-                  ease: "easeInOut",
+                  ease: "easeInOut" as const,
                 }}
                 className="absolute -left-6 -top-6 h-64 w-full rounded-2xl bg-white/10 backdrop-blur-sm"
               />
@@ -203,7 +203,7 @@ export default function CTASection() {
                 transition={{
                   duration: 7,
                   repeat: Infinity,
-                  ease: "easeInOut",
+                  ease: "easeInOut" as const,
                 }}
                 className="absolute -right-6 -bottom-6 h-64 w-full rounded-2xl bg-white/10 backdrop-blur-sm"
               />

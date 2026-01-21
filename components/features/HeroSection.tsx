@@ -22,7 +22,7 @@ export default function HeroSection() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }}
         />
         <motion.div
@@ -35,7 +35,7 @@ export default function HeroSection() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }}
         />
         <motion.div
@@ -48,7 +48,7 @@ export default function HeroSection() {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }}
         />
       </div>
@@ -58,7 +58,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" as const }}
           className="text-center"
         >
           {/* Subtitle */}
@@ -155,7 +155,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: [0, 10, 0] }}
           transition={{
             opacity: { delay: 2, duration: 0.8 },
-            y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            y: { duration: 2, repeat: Infinity, ease: "easeInOut" as const },
           }}
           onClick={scrollToAbout}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 transform"

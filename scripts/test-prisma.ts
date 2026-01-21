@@ -14,11 +14,12 @@ async function main() {
   console.log(`Found ${posts.length} blog posts:\n`);
 
   posts.forEach((post) => {
-    console.log(`- ${post.title}`);
+    console.log(`- ${post.titleJa || post.titleEn}`);
     console.log(`  Slug: ${post.slug}`);
     console.log(`  Date: ${post.date.toLocaleDateString()}`);
     console.log(`  Author: ${post.author}`);
-    console.log(`  Excerpt: ${post.excerpt.substring(0, 100)}...`);
+    console.log(`  Excerpt (JA): ${(post.excerptJa || "").substring(0, 100)}...`);
+    console.log(`  Excerpt (EN): ${(post.excerptEn || "").substring(0, 100)}...`);
     console.log();
   });
 
