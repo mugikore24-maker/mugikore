@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "migrate-blog": "tsx scripts/migrate-blog-to-db.ts"
+    "migrate-blog": "tsx scripts/migrate-blog-to-db.ts",
+    "postinstall": "prisma generate"
   },
   "repository": {
     "type": "git",
