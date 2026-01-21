@@ -35,7 +35,7 @@ export default async function BlogPage() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-20">
+      <main className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20">
         {posts.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-xl text-brown-700">
@@ -43,35 +43,41 @@ export default async function BlogPage() {
             </p>
           </div>
         ) : (
-          <div className="space-y-12">
-            {posts.map((post, index) => (
-              <article
+          <div className="grid gap-10 md:grid-cols-2">
+            {posts.map((post) => (
+              <Link
                 key={post.slug}
-                className={index !== 0 ? "pt-12 border-t border-brown-300" : ""}
+                href={`/blog/${post.slug}`}
+                className="group block overflow-hidden rounded-2xl border border-brown-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
               >
-                <Link href={`/blog/${post.slug}`} className="group">
-                  <h2 className="font-display text-2xl md:text-3xl font-bold text-brown-900 mb-3 group-hover:text-brown-700 transition-colors">
-                    {post.title}
-                  </h2>
-                </Link>
-
-                <div className="flex items-center gap-4 text-sm text-brown-600 mb-4">
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                  <span>•</span>
-                  <span>{post.author}</span>
-                </div>
-
-                <p className="text-lg text-brown-800 leading-relaxed mb-4">
-                  {post.excerpt}
-                </p>
-
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="inline-block text-brown-600 font-medium hover:text-brown-900 transition-colors"
+                <div
+                  className="relative h-48 w-full overflow-hidden"
+                  style={{
+                    backgroundImage: post.heroImage
+                      ? `linear-gradient(135deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2)), url(${post.heroImage})`
+                      : "linear-gradient(135deg, #F5F1E8, #E8DFD6)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
                 >
-                  続きを読む →
-                </Link>
-              </article>
+                  <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/50 via-black/30 to-transparent p-4">
+                    <h2 className="font-display text-2xl font-bold text-white group-hover:text-beige-50">
+                      {post.title}
+                    </h2>
+                    <div className="flex items-center gap-3 text-sm text-beige-100/90">
+                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                      <span>•</span>
+                      <span>{post.author}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-3 p-4">
+                  <p className="hidden text-brown-800 md:block">{post.excerpt}</p>
+                  <span className="inline-block text-brown-600 font-medium group-hover:text-brown-800">
+                    続きを読む →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         )}
